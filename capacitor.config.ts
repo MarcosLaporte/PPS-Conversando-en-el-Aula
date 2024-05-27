@@ -1,8 +1,8 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'PPS-PP-App6',
+  appId: 'com.pp6.app',
+  appName: 'Conversando',
   webDir: 'www'
 };
 
