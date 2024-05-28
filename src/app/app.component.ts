@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastWarning } from './utils';
+import { ToastInfo, ToastWarning } from './utils';
 import { AuthService } from './services/auth.service';
-import { Router } from '@angular/router';
+import { NavigationStart, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
@@ -10,9 +10,16 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  constructor(private auth: AuthService, private router: Router, public spinner: NgxSpinnerService) {
+  currentRoute: string = '';
+
+  constructor(protected auth: AuthService, protected router: Router, public spinner: NgxSpinnerService) {
     const ssUser = sessionStorage.getItem('userInSession');
     this.auth.UserInSession = ssUser ? JSON.parse(ssUser) : null;
+
+    router.events.subscribe((ev) => {
+      if (ev instanceof NavigationStart)
+        this.currentRoute = ev.url;
+    });
   }
 
   ngOnInit() {
@@ -24,5 +31,11 @@ export class AppComponent implements OnInit {
         this.router.navigateByUrl('login');
       }
     });
+  }
+
+  signOut() {
+    this.auth.signOut();
+    ToastInfo.fire('Sesión cerrada.');
+    this.router.navigateByUrl('login');
   }
 }

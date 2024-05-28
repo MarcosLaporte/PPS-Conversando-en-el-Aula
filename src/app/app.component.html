@@ -1,4 +1,12 @@
 <ion-app>
+  <ion-header [translucent]="true" *ngIf="router.url !== '/splash'">
+    <ion-toolbar>
+      <ion-item lines="none">
+        <ion-icon *ngIf="auth.UserInSession" name="log-out-outline" (click)="signOut()"></ion-icon>
+        <ion-title class="ion-text-end">Conversando en el aula</ion-title>
+      </ion-item>
+    </ion-toolbar>
+  </ion-header>
   <ion-router-outlet></ion-router-outlet>
   <ngx-spinner [fullScreen]="true" template="<img src='../assets/spinner.gif'>"></ngx-spinner>
 </ion-app>
