@@ -1,0 +1,50 @@
+<div class="container bg-img">
+  <ion-card class="ion-padding">
+    <ion-button expand="block" [disabled]="signupForm.valid" color="danger" (click)="navCtrl.navigateForward('/login')">
+      Ingresar
+    </ion-button>
+    <ion-card-content class="ion-no-padding">
+      <form #signupForm="ngForm">
+        <ion-item>
+          <ion-input label="Nombre" labelPlacement="fixed" type="text" [(ngModel)]="name" name="name" required
+            (keypress)="filterInput($event)">
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Apellido" labelPlacement="fixed" type="text" [(ngModel)]="lastName" name="lastName" required
+            (keypress)="filterInput($event)">
+          </ion-input>
+        </ion-item>
+        <ion-radio-group [(ngModel)]="this.type" name="type" required>
+          <ion-item><ion-radio labelPlacement="stacked" value='admin' justify="space-between">ADMIN</ion-radio></ion-item>
+          <ion-item><ion-radio labelPlacement="stacked" value='tester' justify="space-between">TESTER</ion-radio></ion-item>
+          <ion-item><ion-radio labelPlacement="stacked" value='invitado' justify="space-between">INVITADO</ion-radio></ion-item>
+          <ion-item><ion-radio labelPlacement="stacked" value='usuario' justify="space-between">USUARIO</ion-radio></ion-item>
+        </ion-radio-group>
+        <ion-item>
+          <ion-input label="Contraseña" [clearOnEdit]="false" labelPlacement="fixed" fill="outline" type="password"
+            [(ngModel)]="password" name="password" required>
+            <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Reingrese" [clearOnEdit]="false" labelPlacement="fixed" fill="outline" type="password"
+            [(ngModel)]="passCheck" name="passCheck" required>
+            <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Correo" [clearInput]="true" labelPlacement="fixed" fill="outline" type="email"
+            errorText="Correo inválido" [(ngModel)]="email" name="email" required></ion-input>
+        </ion-item>
+        <ion-radio-group [(ngModel)]="this.type" name="type" required>
+          <ion-item><ion-radio labelPlacement="stacked" value='femenino' justify="space-between">FEMENINO</ion-radio></ion-item>
+          <ion-item><ion-radio labelPlacement="stacked" value='masculino' justify="space-between">MASCULINO</ion-radio></ion-item>
+        </ion-radio-group>
+      </form>
+    </ion-card-content>
+    <ion-button expand="block" [disabled]="!signupForm.valid" color="success" (click)="signup()">
+      Registrarse
+    </ion-button>
+  </ion-card>
+</div>
