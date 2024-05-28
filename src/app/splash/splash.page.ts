@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-splash',
@@ -13,9 +14,11 @@ export class SplashPage {
       const audio = new Audio('../../assets/sounds/key-glitch.mp3');
       audio.play();
     }, 3000);
+
+    const route = inject(AuthService).UserInSession ? '/home' : '/login';
     setTimeout(() => {
-      navCtrl.navigateRoot('/login');
+      navCtrl.navigateRoot(route);
       history.pushState(null, '');
-    }, 4600);
+    }, 4500);
   }
 }
