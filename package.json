@@ -9,7 +9,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "sync": "ionic build && ionic cap sync android"
   },
   "private": true,
   "dependencies": {
@@ -33,6 +34,7 @@
     "ionicons": "^7.0.0",
     "ngx-spinner": "^17.0.0",
     "rxjs": "~7.8.0",
+    "sweetalert2": "^11.11.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"
   },
