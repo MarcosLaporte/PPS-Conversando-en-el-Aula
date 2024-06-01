@@ -16,10 +16,6 @@
       display: flex;
       align-items: center;
 
-      .fab-img {
-        width: 75%;
-      }
-
       form {
         width: 100%;
         display: flex;
@@ -31,7 +27,25 @@
     color: chocolate;
 
     ion-input {
+      margin-top: 16px;
       --color: chocolate;
+    }
+  }
+}
+
+ion-fab {
+  &[vertical="top"] {
+    top: 58px;
+  }
+
+  ion-fab-button {
+    width: 5rem;
+    max-width: 30vw;
+    height: 5rem;
+    max-height: 30vw;
+
+    .fab-img {
+      width: 75%;
     }
   }
 }

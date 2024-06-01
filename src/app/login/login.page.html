@@ -1,50 +1,47 @@
 <div class="container bg-img">
+  <div class="fabs">
+    <ion-fab vertical="top" horizontal="start">
+      <ion-fab-button color="tertiary" (click)="quickFill('admin@admin.com', '111111')">
+        <img src="../../assets/admin.png" class="fab-img">
+      </ion-fab-button>
+    </ion-fab>
+    <ion-fab vertical="top" horizontal="center">
+      <ion-fab-button color="tertiary" (click)="quickFill('tester@tester.com', '555555')">
+        <img src="../../assets/tester.png" class="fab-img">
+      </ion-fab-button>
+    </ion-fab>
+    <ion-fab vertical="top" horizontal="end">
+      <ion-fab-button color="tertiary" (click)="quickFill('invitado@invitado.com', '222222')">
+        <img src="../../assets/guest.png" class="fab-img">
+      </ion-fab-button>
+    </ion-fab>
+    <ion-fab vertical="bottom" horizontal="start">
+      <ion-fab-button color="tertiary" (click)="quickFill('usuario@usuario.com', '333333')">
+        <img src="../../assets/user.png" class="fab-img">
+      </ion-fab-button>
+    </ion-fab>
+    <ion-fab vertical="bottom" horizontal="end">
+      <ion-fab-button color="tertiary" (click)="quickFill('anonimo@anonimo.com', '444444')">
+        <img src="../../assets/anon.png" class="fab-img">
+      </ion-fab-button>
+    </ion-fab>
+  </div>
   <ion-card class="ion-padding">
     <ion-card-content class="ion-no-padding">
-      <div class="fabs">
-        <ion-fab vertical="top" horizontal="start">
-          <ion-fab-button color="light" (click)="quickFill('admin@admin.com', '111111')">
-            <img src="../../assets/admin.png" class="fab-img">
-          </ion-fab-button>
-        </ion-fab>
-        <ion-fab vertical="top" horizontal="center">
-          <ion-fab-button color="light" (click)="quickFill('tester@tester.com', '555555')">
-            <img src="../../assets/tester.png" class="fab-img">
-          </ion-fab-button>
-        </ion-fab>
-        <ion-fab vertical="top" horizontal="end">
-          <ion-fab-button color="light" (click)="quickFill('invitado@invitado.com', '222222')">
-            <img src="../../assets/guest.png" class="fab-img">
-          </ion-fab-button>
-        </ion-fab>
-        <ion-fab vertical="bottom" horizontal="start">
-          <ion-fab-button color="light" (click)="quickFill('usuario@usuario.com', '333333')">
-            <img src="../../assets/user.png" class="fab-img">
-          </ion-fab-button>
-        </ion-fab>
-        <ion-fab vertical="bottom" horizontal="end">
-          <ion-fab-button color="light" (click)="quickFill('anonimo@anonimo.com', '444444')">
-            <img src="../../assets/anon.png" class="fab-img">
-          </ion-fab-button>
-        </ion-fab>
-      </div>
       <form #loginForm="ngForm">
-        <ion-item>
-          <ion-input label="Contraseña" [clearOnEdit]="false" labelPlacement="fixed" fill="outline" type="password"
-            [(ngModel)]="password" name="password" required>
-            <ion-input-password-toggle slot="end"></ion-input-password-toggle>
-          </ion-input>
-        </ion-item>
-        <ion-button expand="block" [disabled]="loginForm.valid" color="danger" (click)="navCtrl.navigateForward('/signup')">
+        <ion-input label="Contraseña" [clearOnEdit]="false" labelPlacement="stacked" fill="outline" type="password"
+          [(ngModel)]="password" name="password" required>
+          <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+        </ion-input>
+        <ion-button expand="block" [disabled]="loginForm.valid" color="danger"
+          (click)="navCtrl.navigateForward('/signup')">
           Registrarse
         </ion-button>
         <ion-button expand="block" [disabled]="!loginForm.valid" color="success" (click)="login()">
           Ingresar
         </ion-button>
-        <ion-item>
-          <ion-input label="Correo" [clearInput]="true" labelPlacement="fixed" fill="outline" type="email"
-            errorText="Correo inválido" [(ngModel)]="email" name="email" required></ion-input>
-        </ion-item>
+        <ion-input label="Correo" [clearInput]="true" labelPlacement="stacked" fill="outline" type="email"
+          errorText="Correo inválido" [(ngModel)]="email" name="email" required></ion-input>
       </form>
     </ion-card-content>
   </ion-card>
