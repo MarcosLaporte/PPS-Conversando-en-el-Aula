@@ -1,7 +1,8 @@
-<ion-content [fullscreen]="true">
-  <div class="container " [class]="'bg-'+colName">
-    <div id="chat-container">
-      <ion-item *ngFor="let msg of messages" [class]="currentUserIsSender(msg)?'msg-sent':'msg-received'" lines="none">
+<div class="container" [class]="'bg-'+colName">
+  <div id="chat-container">
+    <div id="messages">
+      <ion-item *ngFor="let msg of messages" class="msg" lines="none"
+        [class]="currentUserIsSender(msg)?'msg-sent':'msg-received'">
         <div class="msg-content">
           <ion-text class="sender" *ngIf="!currentUserIsSender(msg)">
             <i>{{msg.sender.name}} {{msg.sender.lastname}}</i>
@@ -11,12 +12,13 @@
         </div>
       </ion-item>
     </div>
-    <ion-item id="msg-input" class="ion-margin-end">
-      <ion-input placeholder="Escriba su mensaje" [(ngModel)]="msgText" name="msgText" maxlength="21"
-      (keyup.enter)="sendMessage()"></ion-input>
-      <ion-button (click)="sendMessage()">
-        <ion-icon name="send-outline"></ion-icon>
-      </ion-button>
-    </ion-item>
   </div>
-</ion-content>
+
+  <ion-item id="msg-input" class="ion-margin-end">
+    <ion-input placeholder="Escriba su mensaje" [(ngModel)]="msgText" name="msgText" maxlength="21"
+      (keyup.enter)="sendMessage()"></ion-input>
+    <ion-button (click)="sendMessage()">
+      <ion-icon name="send-outline"></ion-icon>
+    </ion-button>
+  </ion-item>
+</div>

@@ -1,16 +1,33 @@
 .container {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   .buttons {
-    width: 100%;
     display: inherit;
     flex-direction: column;
+
+    @media (orientation: portrait) {
+      span {
+        font-size: 12vw;
+      }
+
+      img {
+        width: 60vw;
+        max-width: 35vh;
+      }
+    }
 
     @media (orientation: landscape) {
       flex-direction: row;
 
+      span {
+        font-size: 12vh;
+      }
+
       img {
-        width: 70%;
+        width: 60vh;
+        max-width: 35vw;
       }
     }
 
